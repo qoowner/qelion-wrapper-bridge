@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCR + LLM</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="app__panel">
+      <header class="app__header">
+        <div class="header__info">
+          <div class="title" data-i18n="title">Let’s talk!</div>
+          <div class="meta" data-i18n="metaPrefix">Apple OCR × Ollama</div>
+        </div>
+        <div class="header__controls">
+          <label class="selector">
+            <span class="selector__label" data-i18n="modelLabel">Model</span>
+            <select id="modelSelect" class="selector__input">
+              <option value="" disabled selected data-i18n="modelLoading">Loading…</option>
+            </select>
+          </label>
+          <label class="selector">
+            <span class="selector__label" data-i18n="langLabel">Language</span>
+            <select id="languageSelect" class="selector__input">
+              <option value="en" selected>English</option>
+              <option value="ru">Русский</option>
+              <option value="de">Deutsch</option>
+              <option value="fr">Français</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <main class="chat" id="chat"></main>
+
+      <footer class="composer">
+        <label class="add-btn" id="addBtn" title="Attach image or document">
+          <input id="imageFile" type="file" accept="image/*" class="file-input-hidden" />
+          <span class="add-btn__circle">+</span>
+        </label>
+        <input id="prompt" class="prompt" type="text" placeholder="Type a message…" />
+        <button id="send" class="send">Send</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="picker" class="picker picker--hidden">
+    <div class="picker__card">
+      <div class="picker__title" data-i18n="uploadTitle">What do you want to upload?</div>
+      <div class="picker__options">
+        <button type="button" class="picker__btn" data-upload="image">📷 <span data-i18n="uploadImage">Photo</span></button>
+        <button type="button" class="picker__btn" data-upload="text">📝 <span data-i18n="uploadText">Text file</span></button>
+        <button type="button" class="picker__btn" data-upload="pdf">📄 <span data-i18n="uploadPdf">PDF document</span></button>
+      </div>
+      <button type="button" class="picker__close" id="pickerClose" data-i18n="uploadCancel">Cancel</button>
+    </div>
+  </div>
+
+  <input id="textFile" type="file" accept=".txt,.md,.csv,text/plain" class="file-input-hidden" />
+  <input id="pdfFile" type="file" accept="application/pdf,.pdf" class="file-input-hidden" />
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
