@@ -1,6 +1,6 @@
 
 
-# ✨ Qelion-Wrapper-Bridge
+# ✨ Wrapper-Bridge
 
 Chat with your images, text files, and PDFs using local OCR (Apple Vision) and your own Ollama LLM.
 
